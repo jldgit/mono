@@ -98,6 +98,7 @@ sgen_gray_object_free_queue_section (GrayQueueSection *section)
 void
 sgen_gray_object_enqueue (SgenGrayQueue *queue, GCObject *obj, SgenDescriptor desc)
 {
+	obj->count++;
 	GrayQueueEntry entry = SGEN_GRAY_QUEUE_ENTRY (obj, desc);
 
 	HEAVY_STAT (stat_gray_queue_enqueue_slow_path ++);

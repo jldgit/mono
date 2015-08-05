@@ -5836,6 +5836,12 @@ ves_icall_System_Runtime_Remoting_Messaging_AsyncResult_Invoke (MonoAsyncResult 
 	return res;
 }
 
+gint32
+ves_icall_Mono_MonoExt_GetObjectAge (MonoObject *this)
+{
+        return this->count;
+}
+
 void
 mono_message_init (MonoDomain *domain,
 		   MonoMethodMessage *this_obj, 

@@ -63,3 +63,10 @@ namespace Mono {
 		public static extern bool SetGCAllowSynchronousMajor (bool flag);
 	}
 }
+
+public static class MonoExt
+{
+	[MethodImplAttribute (MethodImplOptions.InternalCall)]
+        public static extern int GetObjectAge (System.Object MonoObject);
+}
+

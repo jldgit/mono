@@ -174,6 +174,7 @@ GRAY_OBJECT_ENQUEUE (SgenGrayQueue *queue, GCObject *obj, SgenDescriptor desc)
 	if (G_UNLIKELY (!queue->first || queue->cursor == GRAY_LAST_CURSOR_POSITION (queue->first))) {
 		sgen_gray_object_enqueue (queue, obj, desc);
 	} else {
+		obj->count++;
 		GrayQueueEntry entry = SGEN_GRAY_QUEUE_ENTRY (obj, desc);
 
 		HEAVY_STAT (stat_gray_queue_enqueue_fast_path ++);
